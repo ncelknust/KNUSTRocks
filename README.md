@@ -8,8 +8,7 @@ and export the results — all in the browser, with no login.
 Developed & hosted by the **Net-Zero Carbon Emission Lab (NCEL)**, Kwame Nkrumah University of Science
 and Technology (KNUST), Ghana.
 
-> **Live tool:** _add your published link here (e.g. https://knustrocks.netlify.app or
-> https://<username>.github.io/knustrocks/)_
+> **Live tool:** https://ncelknust.github.io/KNUSTRocks/
 
 ---
 
