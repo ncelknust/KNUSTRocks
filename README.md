@@ -1,60 +1,83 @@
-# Ghana ERW Suitability — Technical Siting Tool · NCEL, KNUST
+# KNUSTRocks — KNUST Rock Enhanced Weathering Index
 
-A focused, self-contained web tool for a **technical ERW practitioner** using the suitability map to
-make siting decisions. Built on the peer-reviewed geospatial study (SoilGrids, WorldClim, Geological
-Survey of Ghana 1:1,000,000). **All economics removed** — this version is about suitability, drivers,
-feedstock and weathering potential only.
+An interactive web map of **Enhanced Rock Weathering (ERW) suitability** across all **216 districts of
+Ghana**. It turns a peer-reviewed geospatial study into a decision-support tool: explore the drivers of
+suitability, re-weight the index to your priorities, screen districts against your own siting criteria,
+and export the results — all in the browser, with no login.
 
-## How to open
-Double-click **`ncel_erw_dashboard_v3.html`** — opens in any browser, no internet or install. One file
-(~260 KB); the NCEL logo and all data are embedded. On first open a short **welcome panel** explains
-what the tool is, the three drivers, and a 4-step how-to (reopen any time via the **?** in the header).
+Developed & hosted by the **Net-Zero Carbon Emission Lab (NCEL)**, Kwame Nkrumah University of Science
+and Technology (KNUST), Ghana.
 
-## Review notes (this build)
-Audited for redundancy and first-run clarity: removed the standalone "Priority rank" layer (it was a
-monotonic copy of the ERW-SI layer — ranking is still shown by the index colour, the priority tiers,
-and the exact rank number on hover/click); merged a duplicated geology column in the CSV export; added
-the welcome/help panel and clearer section labels so a first-time user knows what the dashboard is and
-where to start.
+> **Live tool:** _add your published link here (e.g. https://knustrocks.netlify.app or
+> https://<username>.github.io/knustrocks/)_
 
-## Built for technical ERW decisions
-- **Site screening (the core tool).** Turn on screening and set your criteria — minimum ERW-SI,
-  minimum feedstock outcrop %, minimum geology reactivity, maximum soil pH (target acidic soils),
-  minimum rainfall, maximum haul distance to feedstock. Districts that fail are greyed out; those
-  that pass are highlighted and listed (ranked) in the **Shortlist** tab. A live counter shows how
-  many qualify. Export keeps your filter. (Example: SI≥60 · feedstock≥5% · pH≤5.5 · rain≥1200 mm ·
-  haul≤40 km → 14 districts, the Sefwi/Wassa Amenfi belt.)
-- **Per-district diagnostics.** Click a district for the S/C/G **driver decomposition** (what makes
-  its score), every input (pH, CEC, SOC, temperature, rainfall, geology reactivity, feedstock %,
-  dominant feedstock type, haul distance) with its **national percentile**, and auto-generated
-  **ERW interpretation flags** (acidic soil / ANC benefit, moisture-limited, local reactive
-  feedstock, low-CEC leaching risk, ultramafic Ni-Cr screening, etc.).
-- **Live weighting & priority.** Move the S/C/G weight sliders (or use the paper's presets) and the
-  map, ranking and priority tiers recompute in real time.
-- **Feedstock focus.** Dedicated layers for feedstock outcrop %, dominant feedstock tier
-  (greenstone → ultramafic) and haul distance to the nearest real reactive outcrop.
-- **Weathering CDR potential (technical).** One application-rate slider drives a tCO₂/ha/yr
-  weathering-flux layer and per-district value — no cost or price assumptions.
-- **Search, compare, export.** Find-and-zoom to any district; pin two for a side-by-side technical
-  compare; export the current map (PNG) and the full live table incl. pass/fail (CSV).
+---
 
-## Layers
-Suitability & priority: ERW-SI · rank · tiers · robust priority.
-Soil: soil-need S · pH · CEC · SOC. Climate: climate C · rainfall · temperature.
-Geology & feedstock: reactivity G · outcrop % · dominant tier · haul distance.
-Carbon removal: weathering CDR potential.
+## Features
 
-## Verification
-Composite `ERW-SI = 100·(wS·S + wC·C + wG·G)`; reproduces the published values at the primary
-weighting (mean 60.4). Screening and ranking checked against `district_v4_scored.csv`; the example
-technical screen returns the expected sweet-spot districts (Bodi, Ahafo Ano North, Suaman, the Wassa
-Amenfi and Sefwi districts).
+- **15 map layers** — the ERW Suitability Index (ERW-SI), its soil / climate / geology sub-indices, the
+  raw inputs (pH, CEC, SOC, rainfall, temperature, geology reactivity), feedstock outcrop and dominant
+  feedstock tier, haul distance, priority tiers, robust priority districts, and weathering CDR potential.
+- **Live weighting** — slide the soil / climate / geology weights (or use the published scenarios); the
+  map, ranking and priority tiers recompute instantly.
+- **Site screening** — set thresholds (feedstock %, soil pH, rainfall, geology reactivity, haul distance,
+  minimum ERW-SI) to grey out districts that fail and shortlist those that pass.
+- **District diagnostics** — click any district for its S/C/G driver breakdown, every input versus the
+  national percentile, and plain-language ERW interpretation flags.
+- **Compare & rank**, **search**, and **export** the current map (PNG) and the full scored table (CSV).
 
-## Versions
-- `ncel_erw_dashboard_v3.html` — **current**, technical siting tool (no economics).
-- `ncel_erw_dashboard.html` — v2 (includes economics tab), kept for reference.
+## How the index works
 
-## Honest caveats
-A decision-support screen, not a substitute for quarry-scale feedstock sampling, soil verification and
-field trials. Feedstock tiering is mapped at 1:1,000,000; ultramafics need Ni/Cr screening before
-food-soil use. Haul distance is a straight-line×1.3 road proxy to the nearest mapped reactive outcrop.
+`ERW-SI = 100 · (0.40·S + 0.30·C + 0.30·G)`  → a 0–100 score per district, where **S** = soil restoration
+need, **C** = climate favourability, **G** = geology / feedstock reactivity. Each sub-index is rescaled to
+0–1 by continuous membership functions on district-level values. Robustness is tested across four
+weighting scenarios (Spearman ρ = 0.88–0.99), yielding 40 robust priority districts.
+
+## Data sources
+
+| Layer | Source | Resolution |
+|---|---|---|
+| Soil (pH, CEC, SOC) | SoilGrids 2.0 | 250 m |
+| Climate (MAT, MAP) | WorldClim 2.1 | ~1 km |
+| Geology / feedstock | Geological Survey of Ghana | 1:1,000,000 |
+| District & region boundaries | Ghana admin units | 216 districts · 16 regions |
+
+## Usage
+
+This repository contains a **single self-contained file**, `index.html` — the landing page and the full
+interactive dashboard, with the map, data and logo embedded. There is nothing to build and no server:
+open the file in any modern browser, or host it as a static page.
+
+## Deploy (free)
+
+**GitHub Pages:** push `index.html` to this repo → **Settings → Pages** → Source *Deploy from a branch*,
+Branch `main`, folder `/ (root)` → **Save**. Your site goes live at
+`https://<username>.github.io/<repo>/` in about a minute.
+
+**Netlify Drop (no account):** go to <https://app.netlify.com/drop> and drag `index.html` onto the page
+for an instant link. See `DEPLOY.md` for full instructions and other options.
+
+## Repository contents
+
+- `index.html` — the KNUSTRocks tool (landing page + interactive dashboard).
+- `DEPLOY.md` — step-by-step deployment guide.
+- `README.md` — this file.
+
+## Citation
+
+If you use KNUSTRocks in research or reporting, please cite the accompanying study:
+
+> [Author(s)], _A geospatial assessment of enhanced rock weathering suitability for CO₂ removal and
+> agricultural soil restoration in Ghana_, [journal], [year]. KNUSTRocks interactive tool, Net-Zero
+> Carbon Emission Lab (NCEL), KNUST.
+
+## Disclaimer
+
+KNUSTRocks is a **decision-support screen**, not a substitute for quarry-scale feedstock sampling, soil
+verification and field trials. Economic and CDR figures are order-of-magnitude planning estimates.
+
+## Credits & licence
+
+Developed by the **Net-Zero Carbon Emission Lab (NCEL), KNUST**. Contains data derived from SoilGrids,
+WorldClim and the Geological Survey of Ghana. _Add a licence (e.g. CC BY 4.0 for content, MIT for code)
+here before publishing._
