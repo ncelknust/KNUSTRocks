@@ -1,4 +1,4 @@
-# Ghana ERW Suitability — Technical Siting Tool (v3) · NCEL, KNUST
+# Ghana ERW Suitability — Technical Siting Tool · NCEL, KNUST
 
 A focused, self-contained web tool for a **technical ERW practitioner** using the suitability map to
 make siting decisions. Built on the peer-reviewed geospatial study (SoilGrids, WorldClim, Geological
