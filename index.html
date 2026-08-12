@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KNUSTRocks — Ghana Enhanced Rock Weathering Research Preview</title>
+  <meta name="description" content="KNUSTRocks is the national research and validation programme for the Ghana Rock Enhanced Weathering Opportunity Index, developed under KREW and operated by NCEL, KNUST.">
+  <meta name="theme-color" content="#062a58">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KNUSTRocks — Ghana Enhanced Rock Weathering Research Preview">
+  <meta property="og:description" content="A KREW research application for national ERW reconnaissance, field-validation planning and locally relevant MRV research in Ghana.">
+  <meta property="og:url" content="https://ncelknust.github.io/KNUSTRocks/">
+  <meta property="og:image" content="https://ncelknust.github.io/KNUSTRocks/assets/og-v2.png">
+  <link rel="icon" type="image/png" href="assets/brand/ncel-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KNUSTRocks — Ghana Enhanced Rock Weathering Research Preview">
+  <meta name="twitter:description" content="A KREW research application developed and operated by NCEL, KNUST.">
+  <meta name="twitter:image" content="https://ncelknust.github.io/KNUSTRocks/assets/og-v2.png">
+  <link rel="canonical" href="https://ncelknust.github.io/KNUSTRocks/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+      const key = 'knustrocks-preview-theme';
+      let theme = 'light';
+      try {
+        const saved = window.localStorage.getItem(key);
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        theme = saved === 'light' || saved === 'dark' ? saved : (prefersDark ? 'dark' : 'light');
+      } catch (error) {
+        theme = 'light';
+      }
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy-950: #031a38;
+      --navy-900: #062a58;
+      --navy-800: #0a3a70;
+      --navy-700: #14518e;
+      --green-700: #057a50;
+      --green-600: #079361;
+      --green-500: #12ad70;
+      --green-300: #7cdbad;
+      --ink: #10243c;
+      --muted: #52667d;
+      --soft: #edf5f2;
+      --soft-blue: #edf4fa;
+      --surface: #ffffff;
+      --surface-raised: #ffffff;
+      --line: #d9e4e8;
+      --page: #f7faf9;
+      --shadow: 0 18px 50px rgba(5, 37, 71, .10);
+      --radius: 20px;
+      --max: 1200px;
+      --font-display: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+      --font-body: "DM Sans", "Avenir Next", "Segoe UI", sans-serif;
+      --header-bg: rgba(255, 255, 255, .92);
+      --header-line: rgba(16, 54, 72, .11);
+      --header-ink: #17324a;
+      --header-hover: #057a50;
+      --control-bg: #eff7f4;
+      --control-line: #c9ddd6;
+      --hero-bg:
+        radial-gradient(circle at 80% 23%, rgba(18, 173, 112, .15), transparent 30%),
+        radial-gradient(circle at 13% 6%, rgba(35, 104, 157, .11), transparent 26%),
+        linear-gradient(135deg, #f9fcfb 0%, #edf7f3 50%, #e8f2f7 100%);
+      --hero-ink: #092943;
+      --hero-copy: #466176;
+      --hero-grid-line: rgba(10, 58, 112, .11);
+      --hero-rule: rgba(15, 68, 91, .12);
+      --hero-note-bg: rgba(255, 255, 255, .66);
+      --hero-note-ink: #52697b;
+      --secondary-bg: rgba(255, 255, 255, .70);
+      --secondary-line: rgba(8, 62, 83, .22);
+      --secondary-ink: #153c53;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #eef7ff;
+      --muted: #b4c6d7;
+      --soft: #0a2f38;
+      --soft-blue: #0a2848;
+      --surface: #071f38;
+      --surface-raised: #0b2a48;
+      --line: #214761;
+      --page: #04162a;
+      --shadow: 0 20px 60px rgba(0, 0, 0, .28);
+      --header-bg: rgba(3, 22, 43, .90);
+      --header-line: rgba(213, 233, 244, .13);
+      --header-ink: #dce9f5;
+      --header-hover: #78e0ad;
+      --control-bg: rgba(255, 255, 255, .07);
+      --control-line: rgba(255, 255, 255, .20);
+      --hero-bg:
+        radial-gradient(circle at 78% 30%, rgba(17, 172, 111, .20), transparent 34%),
+        radial-gradient(circle at 11% 2%, rgba(81, 135, 187, .12), transparent 28%),
+        linear-gradient(135deg, var(--navy-950) 0%, #052750 54%, #06364d 100%);
+      --hero-ink: #ffffff;
+      --hero-copy: #d1deeb;
+      --hero-grid-line: rgba(255, 255, 255, .12);
+      --hero-rule: rgba(255, 255, 255, .14);
+      --hero-note-bg: rgba(2, 18, 40, .46);
+      --hero-note-ink: #c9d7e5;
+      --secondary-bg: rgba(255, 255, 255, .08);
+      --secondary-line: rgba(255, 255, 255, .31);
+      --secondary-ink: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color .28s ease, color .28s ease;
+    }
+    body::selection { background: var(--green-300); color: var(--navy-950); }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--green-300); outline-offset: 4px; }
+
+    .skip {
+      position: fixed;
+      z-index: 100;
+      left: 18px;
+      top: -80px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: white;
+      color: var(--navy-950);
+      font-weight: 800;
+      transition: top .2s ease;
+    }
+    .skip:focus { top: 16px; }
+    .shell { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+
+    .site-header {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      border-bottom: 1px solid var(--header-line);
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+      transition: background-color .28s ease, border-color .28s ease;
+    }
+    .scroll-progress {
+      position: absolute;
+      inset: auto auto -1px 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green-500), #68d7b4);
+      box-shadow: 0 0 12px rgba(18, 173, 112, .48);
+    }
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand img { width: 156px; height: auto; }
+    .brand .brand-dark { display: none; }
+    html[data-theme="dark"] .brand .brand-light { display: none; }
+    html[data-theme="dark"] .brand .brand-dark { display: block; }
+    .header-nav { display: flex; align-items: center; gap: 13px; }
+    .nav-links { display: flex; align-items: center; gap: 23px; }
+    .nav-links a {
+      position: relative;
+      color: var(--header-ink);
+      font-size: 14px;
+      font-weight: 680;
+      text-decoration: none;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -9px;
+      left: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--green-500);
+      transform: scaleX(0);
+      transition: transform .2s ease;
+    }
+    .nav-links a:hover, .nav-links a.is-active { color: var(--header-hover); }
+    .nav-links a:hover::after, .nav-links a.is-active::after { transform: scaleX(1); }
+    .nav-links .nav-cta {
+      padding: 10px 14px;
+      border: 1px solid rgba(7, 147, 97, .32);
+      border-radius: 10px;
+      background: rgba(18, 173, 112, .10);
+      color: var(--header-hover);
+    }
+    .nav-links .nav-cta::after { display: none; }
+    .theme-toggle {
+      min-width: 88px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 0 12px;
+      border: 1px solid var(--control-line);
+      border-radius: 12px;
+      background: var(--control-bg);
+      color: var(--header-ink);
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .theme-toggle:hover { transform: translateY(-1px); border-color: var(--green-500); }
+    .theme-icon { font-size: 16px; line-height: 1; }
+    .menu-toggle {
+      width: 42px;
+      height: 42px;
+      display: none;
+      place-items: center;
+      padding: 0;
+      border: 1px solid var(--control-line);
+      border-radius: 12px;
+      background: var(--control-bg);
+      color: var(--header-ink);
+      cursor: pointer;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--hero-bg);
+      color: var(--hero-ink);
+      transition: background .28s ease, color .28s ease;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .13;
+      background-image:
+        linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(90deg, transparent 30%, black 100%);
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, .94fr) minmax(440px, 1.06fr);
+      align-items: center;
+      gap: 58px;
+      min-height: 668px;
+      padding-block: 72px 64px;
+    }
+    .preview-badge, .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .preview-badge {
+      padding: 9px 12px;
+      border: 1px solid rgba(123, 226, 175, .38);
+      border-radius: 999px;
+      background: rgba(8, 132, 85, .18);
+      color: var(--green-700);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3bd58f;
+      box-shadow: 0 0 0 5px rgba(59, 213, 143, .12);
+    }
+    .hero h1 {
+      max-width: 760px;
+      margin: 22px 0 18px;
+      font-family: var(--font-display);
+      font-size: clamp(42px, 4.35vw, 59px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -.048em;
+      text-wrap: balance;
+    }
+    html[data-theme="dark"] .preview-badge { color: #a9edcb; }
+    .hero h1 span { color: var(--green-600); }
+    html[data-theme="dark"] .hero h1 span { color: #4dd59a; }
+    .hero-copy > p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--hero-copy);
+      font-size: clamp(17px, 1.7vw, 19px);
+      line-height: 1.57;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 31px; }
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 20px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--green-500); color: #031d2f; }
+    .button.primary:hover { background: #48d9a0; }
+    .button.secondary { border-color: var(--secondary-line); background: var(--secondary-bg); color: var(--secondary-ink); }
+    .button.secondary:hover { background: color-mix(in srgb, var(--secondary-bg), var(--green-500) 8%); }
+    .hero-visual {
+      position: relative;
+      min-height: 526px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 57% 59%, rgba(62, 224, 150, .17), transparent 34%),
+        linear-gradient(145deg, #082b5a 0%, #063153 64%, #064b49 100%);
+      box-shadow: 0 32px 80px rgba(0,0,0,.30);
+      isolation: isolate;
+    }
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: linear-gradient(90deg, transparent 3%, black 50%, black 100%);
+    }
+    .ghana-map {
+      position: absolute;
+      inset: 29px 24px 28px 112px;
+      width: calc(100% - 136px);
+      height: calc(100% - 57px);
+      object-fit: contain;
+      object-position: center;
+      filter: drop-shadow(0 22px 30px rgba(0,0,0,.20));
+    }
+    .hero-visual::after {
+      content: "GREW-OI · CONTROLLED PREVIEW";
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 10px;
+      background: rgba(3, 26, 56, .78);
+      color: #cfeade;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .12em;
+      backdrop-filter: blur(10px);
+    }
+    .visual-chip {
+      position: absolute;
+      display: grid;
+      gap: 1px;
+      min-width: 178px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, .23);
+      border-radius: 13px;
+      background: rgba(3, 26, 56, .76);
+      color: white;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .20);
+      backdrop-filter: blur(12px);
+    }
+    .visual-chip strong { color: #80e5b4; font-size: 12px; letter-spacing: .04em; }
+    .visual-chip span { color: #d7e4ee; font-size: 12px; }
+    .visual-chip.one { top: 22px; left: 22px; }
+    .visual-chip.two { right: 22px; top: 51%; }
+    .hero-signals {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 39px;
+      padding-top: 22px;
+      border-top: 1px solid var(--hero-rule);
+    }
+    .hero-signal { padding-right: 18px; }
+    .hero-signal + .hero-signal { padding-left: 18px; border-left: 1px solid var(--hero-rule); }
+    .hero-signal strong { display: block; color: var(--hero-ink); font-size: 13px; }
+    .hero-signal span { display: block; margin-top: 2px; color: var(--hero-copy); font-size: 12px; line-height: 1.45; }
+    .release-note {
+      position: relative;
+      border-top: 1px solid var(--hero-rule);
+      background: var(--hero-note-bg);
+    }
+    .release-note .shell {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      padding-block: 12px;
+      color: var(--hero-note-ink);
+      font-size: 14px;
+      text-align: center;
+    }
+    .release-note strong { color: #75dca9; }
+
+    main section { scroll-margin-top: 92px; }
+    .section { padding-block: 88px; }
+    .section.compact { padding-block: 70px; }
+    .section.soft { background: var(--soft); }
+    .section.blue { background: var(--soft-blue); }
+    .section-head { max-width: 760px; margin-bottom: 36px; }
+    .eyebrow { color: var(--green-700); }
+    .section h2 {
+      margin: 13px 0 17px;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.15vw, 43px);
+      font-weight: 800;
+      line-height: 1.10;
+      letter-spacing: -.037em;
+      text-wrap: balance;
+    }
+    .section-head p, .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.62;
+    }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      min-width: 0;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-raised);
+      box-shadow: var(--shadow);
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .card:hover, .status-card:hover, .identity-card:hover { transform: translateY(-5px); border-color: rgba(7, 147, 97, .32); }
+      .path-step:hover { background: color-mix(in srgb, var(--surface), var(--green-500) 5%); }
+    }
+    .card-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      background: var(--soft);
+      color: var(--green-700);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .card h3 { margin: 0 0 10px; font-family: var(--font-display); font-size: 19px; line-height: 1.28; letter-spacing: -.02em; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .pathway {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .path-step { position: relative; min-height: 220px; padding: 27px 23px 29px; border-right: 1px solid var(--line); }
+    .path-step::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: var(--green-500); opacity: .18; }
+    .path-step.is-current::before { opacity: 1; }
+    .path-step.is-current::after {
+      content: "CURRENT FOCUS";
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      padding: 5px 7px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--green-700);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .10em;
+    }
+    .path-step:last-child { border-right: 0; }
+    .path-step b { display: block; margin-bottom: 24px; color: var(--green-700); font-size: 13px; letter-spacing: .14em; }
+    .path-step h3 { margin: 0 0 9px; font-family: var(--font-display); font-size: 18px; }
+    .path-step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.58; }
+
+    .evidence-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 42px; align-items: start; }
+    .statement {
+      padding: 36px;
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, var(--navy-900), #075143);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+    .statement h3 { margin: 0 0 15px; font-family: var(--font-display); font-size: 25px; line-height: 1.25; }
+    .statement p { margin: 0; color: #d2e5e8; }
+    .statement hr { margin: 28px 0; border: 0; border-top: 1px solid rgba(255,255,255,.18); }
+    .statement small { display: block; color: #9fe4c6; font-weight: 750; }
+    .evidence-list { display: grid; gap: 14px; }
+    .evidence-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 17px;
+      align-items: start;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--surface-raised);
+    }
+    .evidence-item span {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--soft);
+      color: var(--green-700);
+      font-weight: 900;
+    }
+    .evidence-item h3 { margin: 1px 0 5px; font-size: 18px; }
+    .evidence-item p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .status-card { padding: 29px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-raised); }
+    .status-card, .identity-card { transition: transform .22s ease, border-color .22s ease; }
+    .status-card h3 { display: flex; align-items: center; gap: 11px; margin: 0 0 18px; font-family: var(--font-display); font-size: 19px; }
+    .status-card h3::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--green-500); }
+    .status-card.next h3::before { background: #5595ca; }
+    .check-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 13px; }
+    .check-list li { position: relative; padding-left: 28px; color: var(--muted); }
+    .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--green-600); font-weight: 900; }
+    .next .check-list li::before { content: "→"; color: var(--navy-700); }
+
+    .access-panel {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 35px;
+      align-items: center;
+      padding: 36px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface-raised);
+      box-shadow: var(--shadow);
+    }
+    .access-panel h2 { margin-top: 10px; }
+    .access-panel p { color: var(--muted); }
+    .boundary-list { display: grid; gap: 12px; }
+    .boundary-item { padding: 17px 18px; border-radius: 14px; background: var(--soft); }
+    .boundary-item b { display: block; margin-bottom: 3px; font-size: 14px; }
+    .boundary-item span { color: var(--muted); font-size: 14px; }
+
+    .collaboration {
+      overflow: hidden;
+      position: relative;
+      border-radius: 30px;
+      padding: 48px;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(48, 210, 137, .19), transparent 34%),
+        linear-gradient(135deg, var(--navy-950), var(--navy-900));
+      color: white;
+      box-shadow: 0 30px 80px rgba(3, 26, 56, .22);
+    }
+    .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 32px 0 35px; }
+    .audience-card {
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      background: rgba(255,255,255,.055);
+    }
+    .audience-card span { display: block; margin-bottom: 7px; color: #79e0ae; font-size: 11px; font-weight: 900; letter-spacing: .12em; }
+    .audience-card h3 { margin: 0 0 6px; color: white; font-family: var(--font-display); font-size: 16px; }
+    .audience-card p { color: #b9cbd9; font-size: 13px; line-height: 1.54; }
+    .collaboration-grid { position: relative; display: grid; grid-template-columns: 1fr .7fr; gap: 52px; align-items: end; }
+    .collaboration .eyebrow { color: #7de0ae; }
+    .collaboration h2 { color: white; margin-bottom: 16px; }
+    .collaboration p { max-width: 720px; margin: 0; color: #cbd9e7; font-size: 17px; }
+    .collaboration .audience-card p { font-size: 13px; }
+    .partner-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+    .partner-tags span { padding: 8px 11px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #dce9f3; font-size: 12px; font-weight: 720; }
+    .contact-actions { display: grid; gap: 12px; }
+    .contact-actions .button { width: 100%; }
+    .contact-actions small { color: #9fb5c7; text-align: center; font-size: 12px; }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .identity-card { min-height: 0; display: flex; flex-direction: column; justify-content: flex-start; gap: 24px; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-raised); }
+    .identity-card .krew-logo { width: min(300px, 100%); max-height: 126px; object-fit: contain; object-position: left center; }
+    html[data-theme="dark"] .identity-card .logo-light { display: none; }
+    html:not([data-theme="dark"]) .identity-card .logo-dark { display: none; }
+    .ncel-lockup {
+      width: min(400px, 100%);
+      padding: 14px 17px 12px;
+      border: 1px solid rgba(7, 147, 97, .18);
+      border-radius: 15px;
+      background: #ffffff;
+    }
+    .identity-card .ncel-logo { width: 100%; height: auto; padding: 0; background: transparent; }
+    .ncel-lockup span { display: none; }
+    .identity-card h3 { margin: 0 0 7px; font-family: var(--font-display); font-size: 20px; }
+    .identity-card p { margin: 0; color: var(--muted); }
+    .contact-lines { display: grid; gap: 7px; margin-top: 20px; color: var(--muted); font-size: 14px; }
+    .contact-lines a { color: var(--green-700); font-weight: 760; text-decoration: none; }
+
+    footer { padding: 34px 0 38px; border-top: 1px solid var(--line); background: var(--surface); }
+    .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 25px; align-items: start; }
+    footer strong { display: block; margin-bottom: 5px; }
+    footer p { max-width: 780px; margin: 0; color: var(--muted); font-size: 13px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 15px; }
+    .footer-links a { color: var(--green-700); font-size: 13px; font-weight: 760; text-decoration: none; }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (max-width: 980px) {
+      .menu-toggle { display: grid; }
+      .nav-links {
+        position: fixed;
+        top: 76px;
+        right: 20px;
+        left: 20px;
+        display: grid;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        border: 0 solid var(--header-line);
+        border-radius: 0 0 18px 18px;
+        background: var(--surface-raised);
+        box-shadow: var(--shadow);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: max-height .28s ease, opacity .2s ease, transform .2s ease, border-width .2s ease;
+      }
+      .nav-links.is-open { max-height: 470px; border-width: 1px; opacity: 1; pointer-events: auto; transform: none; }
+      .nav-links a { padding: 15px 19px; color: var(--ink); border-bottom: 1px solid var(--line); }
+      .nav-links a::after { display: none; }
+      .nav-links a:last-child { border-bottom: 0; }
+      .nav-links .nav-cta { margin: 10px; border: 1px solid rgba(7,147,97,.25); text-align: center; }
+      .hero-grid { grid-template-columns: 1fr; min-height: auto; padding-top: 70px; }
+      .hero-copy { max-width: 800px; }
+      .hero-visual { min-height: 510px; width: min(680px, 100%); }
+      .cards { grid-template-columns: 1fr; }
+      .pathway { grid-template-columns: 1fr 1fr; }
+      .path-step:nth-child(2) { border-right: 0; }
+      .path-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .evidence-grid, .access-panel, .collaboration-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .audience-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 28px, var(--max)); }
+      .site-header .brand img { width: 142px; }
+      .header-inner { min-height: 68px; }
+      .hero-grid { gap: 38px; padding-block: 58px 48px; }
+      .hero h1 { font-size: clamp(36px, 10.7vw, 48px); }
+      .hero-copy > p { font-size: 16.5px; }
+      .hero-actions, .hero-actions .button { width: 100%; }
+      .hero-signals { grid-template-columns: 1fr; gap: 13px; }
+      .hero-signal { padding: 0; }
+      .hero-signal + .hero-signal { padding: 13px 0 0; border-top: 1px solid var(--hero-rule); border-left: 0; }
+      .hero-visual { min-height: 430px; }
+      .ghana-map { inset: 25px 7px 26px 42px; width: calc(100% - 49px); height: calc(100% - 51px); }
+      .visual-chip.two { display: none; }
+      .section { padding-block: 68px; }
+      .section.compact { padding-block: 58px; }
+      .section h2 { font-size: clamp(28px, 8.7vw, 36px); }
+      .section-head p, .lead { font-size: 16.5px; }
+      .card, .statement, .status-card, .identity-card { padding: 24px; }
+      .pathway, .status-grid { grid-template-columns: 1fr; }
+      .path-step { border-right: 0; border-bottom: 1px solid var(--line); }
+      .path-step:nth-child(3) { border-bottom: 1px solid var(--line); }
+      .path-step:last-child { border-bottom: 0; }
+      .access-panel, .collaboration { padding: 25px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { justify-content: flex-start; }
+      .theme-toggle { min-width: 42px; padding-inline: 0; }
+      .theme-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="KREW home">
+        <img class="brand-light" src="assets/brand/krew-logo.png" alt="KREW — KNUST Rock Enhanced Weathering">
+        <img class="brand-dark" src="assets/brand/krew-logo-dark.png" alt="">
+      </a>
+      <div class="header-nav">
+        <nav class="nav-links" id="site-navigation" aria-label="Primary navigation">
+          <a href="#purpose">Purpose</a>
+          <a href="#programme">Programme</a>
+          <a href="#evidence">Evidence</a>
+          <a href="#status">Status</a>
+          <a class="nav-cta" href="#collaborate">Collaborate</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Use dark appearance" aria-pressed="false" title="Use dark appearance"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark</span></button>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><span aria-hidden="true">☰</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <div class="preview-badge"><span class="status-dot"></span>KNUSTRocks · Research preview · 2026</div>
+        <h1>Ghana-focused evidence for <span>enhanced rock weathering</span> research.</h1>
+        <p>KNUSTRocks is being developed under the KNUST Rock Enhanced Weathering project to support national reconnaissance, field-validation planning and locally relevant monitoring, reporting and verification research.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#programme">Review the research programme <span aria-hidden="true">→</span></a>
+          <a class="button secondary" href="mailto:asokama@knust.edu.gh?subject=KNUSTRocks%20technical%20demonstration">Request a technical demonstration</a>
+        </div>
+        <div class="hero-signals" aria-label="KNUSTRocks research attributes">
+          <div class="hero-signal"><strong>National scope</strong><span>Consistent Ghana-wide reconnaissance</span></div>
+          <div class="hero-signal"><strong>Cell-level framework</strong><span>Spatial variation retained for research</span></div>
+          <div class="hero-signal"><strong>Validation-led</strong><span>Claims constrained by evidence readiness</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Stylised outline of Ghana representing a national grid-based research framework">
+        <img class="ghana-map" src="assets/ghana-opportunity-map.png" alt="">
+        <div class="visual-chip one"><strong>Research framework</strong><span>National opportunity reconnaissance</span></div>
+        <div class="visual-chip two"><strong>Next evidence gate</strong><span>Independent review and field validation</span></div>
+      </div>
+    </div>
+    <div class="release-note">
+      <div class="shell"><strong>Controlled public preview.</strong> The complete cell-level application, analytical outputs and unpublished research materials are not included in this release.</div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section class="section" id="purpose">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Research purpose</span>
+          <h2>From national reconnaissance to evidence that can be tested in the field.</h2>
+          <p>KNUSTRocks provides a structured starting point for ERW research in Ghana. It helps identify environmental contrasts, organise validation priorities and define the evidence required before any project-level conclusion can be made.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-number">01</div>
+            <h3>National reconnaissance</h3>
+            <p>Integrate consistent national evidence to identify locations and environmental gradients that warrant more detailed investigation.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">02</div>
+            <h3>Field-validation design</h3>
+            <p>Use contrasting mapped conditions to plan representative soil, feedstock, agronomic and environmental sampling programmes.</p>
+          </article>
+          <article class="card">
+            <div class="card-number">03</div>
+            <h3>MRV research</h3>
+            <p>Connect reconnaissance evidence to baseline design, carbon attribution, lifecycle accounting and independent assurance requirements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="programme">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">KREW research programme</span>
+          <h2>A staged programme with explicit evidence gates.</h2>
+          <p>The project progresses from spatial prioritisation through physical characterisation and field testing to locally appropriate verification research. Each stage is designed to constrain the claims that can be made at the next.</p>
+        </div>
+        <div class="pathway">
+          <article class="path-step"><b>STAGE 01</b><h3>Prioritise</h3><p>National screening, uncertainty assessment and selection of contrasting validation settings.</p></article>
+          <article class="path-step is-current"><b>STAGE 02</b><h3>Characterise</h3><p>Representative feedstock mineralogy, geochemistry, reactivity, safety and supply-chain evidence.</p></article>
+          <article class="path-step is-current"><b>STAGE 03</b><h3>Validate</h3><p>Baseline measurement, controlled experiments and field trials across relevant Ghanaian conditions.</p></article>
+          <article class="path-step"><b>STAGE 04</b><h3>Verify</h3><p>Carbon attribution, fate, leakage, lifecycle emissions, uncertainty and independent assurance.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="shell evidence-grid">
+        <div class="statement">
+          <h3>Opportunity is not the same as feasibility.</h3>
+          <p>The current framework evaluates the relative co-location of selected national evidence. It does not establish verified carbon removal, feedstock safety, quarry reserves, land eligibility, deployment economics or crediting readiness.</p>
+          <hr>
+          <small>All project-level decisions require independent field, laboratory, environmental, logistical and financial evidence.</small>
+        </div>
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Evidence architecture</span>
+            <h2>Three screening perspectives, interpreted together.</h2>
+            <p>The research model distinguishes the environmental context for weathering, potential agronomic co-benefit and preliminary mapped access to candidate feedstock.</p>
+          </div>
+          <div class="evidence-list">
+            <article class="evidence-item"><span>H</span><div><h3>Hydroclimatic context</h3><p>Broad precipitation and temperature conditions used for national comparison—not a weathering-rate or carbon-removal model.</p></div></article>
+            <article class="evidence-item"><span>B</span><div><h3>Acid-soil co-benefit context</h3><p>Soil acidity and cation-retention conditions relevant to planning agronomic investigation—not evidence of measured crop response.</p></div></article>
+            <article class="evidence-item"><span>F</span><div><h3>Mapped feedstock-access context</h3><p>Reconnaissance-scale proximity to candidate mapped lithologies—not mineralogical qualification, quarry inventory or road logistics.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue" id="status">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Research status</span>
+          <h2>The computational framework is established; validation is the next priority.</h2>
+          <p>The full analytical platform is being retained for structured scientific review while the research team advances publication, partnership and field-validation activities.</p>
+        </div>
+        <div class="status-grid">
+          <article class="status-card">
+            <h3>Framework completed</h3>
+            <ul class="check-list">
+              <li>National grid-based opportunity framework</li>
+              <li>Uncertainty and model-structure assessment</li>
+              <li>District reporting overlays that retain within-district variation</li>
+              <li>Interactive research and validation-planning application</li>
+              <li>Detailed manuscript and supporting documentation in preparation</li>
+            </ul>
+          </article>
+          <article class="status-card next">
+            <h3>Validation priorities</h3>
+            <ul class="check-list">
+              <li>Independent scientific and geospatial review</li>
+              <li>Representative feedstock sampling and qualification</li>
+              <li>Soil baselines and controlled agronomic experiments</li>
+              <li>Field weathering, transport and carbon-fate measurements</li>
+              <li>Lifecycle assessment and locally appropriate MRV development</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="access">
+      <div class="shell access-panel">
+        <div>
+          <span class="eyebrow">Public-release boundary</span>
+          <h2>A preview designed for transparency without premature data release.</h2>
+          <p>This page communicates the project purpose, evidence boundaries, research status and collaboration pathway. It intentionally excludes the complete model dataset and unpublished analytical results while scientific and institutional reviews are in progress.</p>
+        </div>
+        <div class="boundary-list">
+          <div class="boundary-item"><b>Included publicly</b><span>Project scope, research pathway, evidence interpretation, status and contact information.</span></div>
+          <div class="boundary-item"><b>Retained for controlled review</b><span>Cell-level results, source-variable records, uncertainty arrays, sensitivity outputs and internal validation files.</span></div>
+          <div class="boundary-item"><b>Future release</b><span>Versioned application and research outputs following publication, licensing and institutional approval.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="collaborate">
+      <div class="shell collaboration">
+        <div>
+          <span class="eyebrow">Who should engage</span>
+          <div class="audience-grid">
+            <article class="audience-card"><span>01 · SCIENCE</span><h3>Research and technical partners</h3><p>Contribute specialist capability in feedstocks, soils, agronomy, geochemistry, modelling, lifecycle assessment or MRV.</p></article>
+            <article class="audience-card"><span>02 · VALIDATION</span><h3>Field and supply-chain partners</h3><p>Support representative sampling, logistics evidence, trials, monitoring systems and responsible local implementation research.</p></article>
+            <article class="audience-card"><span>03 · ENABLEMENT</span><h3>Funders and public institutions</h3><p>Support independent validation, research infrastructure, institutional coordination and transparent public-interest evidence.</p></article>
+          </div>
+        </div>
+        <div class="collaboration-grid">
+          <div>
+            <span class="eyebrow">Research collaboration</span>
+            <h2>Partners are invited to contribute to the validation programme.</h2>
+            <p>NCEL welcomes discussions with research institutions, funders, feedstock and quarry specialists, agronomists, geochemists, MRV practitioners, public institutions and responsible project developers.</p>
+            <div class="partner-tags" aria-label="Priority collaboration areas">
+              <span>Feedstock characterisation</span><span>Soil science</span><span>Field trials</span><span>Reactive transport</span><span>Lifecycle assessment</span><span>MRV</span>
+            </div>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:asokama@knust.edu.gh?subject=KNUSTRocks%20research%20collaboration">Request a collaboration discussion</a>
+            <a class="button secondary" href="https://www.ncel.knust.edu.gh" target="_blank" rel="noopener">Visit the NCEL website</a>
+            <small>Technical demonstrations are provided by arrangement while the full research application remains under controlled review.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact soft" id="about">
+      <div class="shell about-grid">
+        <article class="identity-card">
+          <div>
+            <img class="krew-logo logo-light" src="assets/brand/krew-logo.png" alt="KREW — KNUST Rock Enhanced Weathering">
+            <img class="krew-logo logo-dark" src="assets/brand/krew-logo-dark.png" alt="KREW — KNUST Rock Enhanced Weathering">
+          </div>
+          <div><h3>KNUST Rock Enhanced Weathering</h3><p>KREW is NCEL's coordinated research programme for enhanced rock weathering, spanning national prioritisation, feedstock characterisation, field validation and MRV research.</p></div>
+        </article>
+        <article class="identity-card">
+          <div class="ncel-lockup">
+            <img class="ncel-logo" src="assets/brand/ncel-logo.png" alt="NCEL">
+            <span>Net-Zero Carbon Emission Laboratory</span>
+          </div>
+          <div>
+            <h3>Net-Zero Carbon Emission Lab</h3>
+            <p>NCEL is a specialised research hub at KNUST developing rigorous, science-based and data-driven solutions in decarbonisation and climate resilience.</p>
+            <div class="contact-lines">
+              <a href="mailto:ncel@knust.edu.gh">ncel@knust.edu.gh</a>
+              <span>New Engineering Building FF1, College of Engineering, KNUST, Kumasi, Ghana</span>
+              <span>Principal Investigator: Dr. Yen Adams Sokama-Neuyam · +233 24 593 7358</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div>
+        <strong>KNUSTRocks · Research Preview</strong>
+        <p>Developed under KREW and operated by NCEL, KNUST. KNUSTRocks is a research decision-support framework and does not provide verified carbon-removal, feedstock-safety, financial, regulatory or crediting conclusions.</p>
+      </div>
+      <div class="footer-links"><a href="#top">Back to top</a><a href="mailto:ncel@knust.edu.gh">Contact NCEL</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButton = document.querySelector('.theme-toggle');
+      const themeIcon = themeButton.querySelector('.theme-icon');
+      const themeLabel = themeButton.querySelector('.theme-label');
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      const menuButton = document.querySelector('.menu-toggle');
+      const navigation = document.querySelector('.nav-links');
+      const progress = document.querySelector('.scroll-progress');
+      const storageKey = 'knustrocks-preview-theme';
+
+      const readStoredTheme = () => {
+        try {
+          const saved = window.localStorage.getItem(storageKey);
+          return saved === 'light' || saved === 'dark' ? saved : null;
+        } catch (error) {
+          return null;
+        }
+      };
+
+      const storeTheme = (theme) => {
+        try { window.localStorage.setItem(storageKey, theme); } catch (error) { /* Appearance still works for this visit. */ }
+      };
+
+      const setTheme = (theme, persist = false) => {
+        const isDark = theme === 'dark';
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        themeButton.setAttribute('aria-label', isDark ? 'Use light appearance' : 'Use dark appearance');
+        themeButton.setAttribute('aria-pressed', String(isDark));
+        themeButton.title = isDark ? 'Use light appearance' : 'Use dark appearance';
+        themeIcon.textContent = isDark ? '☀' : '☾';
+        themeLabel.textContent = isDark ? 'Light' : 'Dark';
+        themeMeta.setAttribute('content', isDark ? '#04162a' : '#ffffff');
+        if (persist) storeTheme(theme);
+      };
+
+      setTheme(root.dataset.theme === 'dark' ? 'dark' : 'light');
+      themeButton.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        setTheme(next, true);
+      });
+
+      if (window.matchMedia) {
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        const followSystemTheme = event => {
+          if (!readStoredTheme()) setTheme(event.matches ? 'dark' : 'light');
+        };
+        if (media.addEventListener) media.addEventListener('change', followSystemTheme);
+      }
+
+      const closeMenu = () => {
+        navigation.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation');
+        menuButton.querySelector('span').textContent = '☰';
+      };
+      menuButton.addEventListener('click', () => {
+        const open = !navigation.classList.contains('is-open');
+        navigation.classList.toggle('is-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        menuButton.querySelector('span').textContent = open ? '×' : '☰';
+      });
+      navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+
+      const updateProgress = () => {
+        const available = document.documentElement.scrollHeight - window.innerHeight;
+        const amount = available > 0 ? Math.min(100, Math.max(0, (window.scrollY / available) * 100)) : 0;
+        progress.style.width = `${amount}%`;
+      };
+      updateProgress();
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', () => { updateProgress(); if (window.innerWidth > 980) closeMenu(); });
+
+      const revealItems = document.querySelectorAll('.card, .pathway, .statement, .evidence-item, .status-card, .access-panel, .audience-card, .collaboration-grid, .identity-card');
+      revealItems.forEach(item => item.classList.add('reveal'));
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .10, rootMargin: '0px 0px -30px' });
+        revealItems.forEach(item => revealObserver.observe(item));
+      } else {
+        revealItems.forEach(item => item.classList.add('is-visible'));
+      }
+
+      const sections = [...document.querySelectorAll('main section[id]')];
+      const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+      if ('IntersectionObserver' in window) {
+        const sectionObserver = new IntersectionObserver(entries => {
+          const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visible) return;
+          navLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
+        }, { rootMargin: '-20% 0px -62% 0px', threshold: [0, .2, .5] });
+        sections.forEach(section => sectionObserver.observe(section));
+      }
+    })();
+  </script>
+</body>
+</html>
